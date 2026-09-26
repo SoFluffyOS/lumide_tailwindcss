@@ -1,0 +1,23 @@
+name: lumide_tailwindcss
+description: "Tailwind CSS IntelliSense extension for Lumide IDE"
+version: 1.0.0
+homepage: https://lumide.dev
+repository: https://github.com/SoFluffyOS/lumide_tailwindcss
+
+topics:
+  - lumide-frameworks
+  - lumide-plugin
+
+executables:
+  lumide_tailwindcss: main
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  lumide_api: 1.11.0
+  path: ^1.9.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

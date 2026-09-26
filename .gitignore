@@ -1,0 +1,23 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IDE related
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Dart/Pub related
+/pubspec.lock
+.dart_tool/
+/build/
+/coverage/

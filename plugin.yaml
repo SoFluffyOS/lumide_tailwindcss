@@ -1,0 +1,95 @@
+id: lumide_tailwindcss
+name: 'Tailwind CSS'
+description: 'Tailwind CSS IntelliSense for Lumide IDE. Autocomplete, hover previews, and linting.'
+entry_point: 'bin/main.dart'
+
+activation_events:
+  - 'workspaceContains:tailwind.config.js'
+  - 'workspaceContains:tailwind.config.cjs'
+  - 'workspaceContains:tailwind.config.mjs'
+  - 'workspaceContains:tailwind.config.ts'
+  - 'workspaceContains:tailwind.config.json'
+  - 'workspaceContains:package.json'
+  - 'workspaceContains:*.css'
+  - 'workspaceContains:*.html'
+  - 'onCommand:tailwindCSS.restartLsp'
+  - 'onCommand:tailwindCSS.showMenu'
+  - 'onCommand:tailwindCSS.checkStatus'
+
+permissions:
+  - shell:
+      - tailwindcss-language-server
+      - node
+      - npx
+      - npm
+      - which
+      - where
+
+configuration:
+  - key: tailwindCSS.serverPath
+    type: filePath
+    title: 'Language Server Executable Path'
+    description: 'Path to the tailwindcss-language-server executable. If empty, the system PATH will be used.'
+
+  - key: tailwindCSS.emmetCompletions
+    type: boolean
+    title: 'Emmet Completions'
+    default: false
+    description: 'Enable class name completions when using Emmet-style syntax (e.g. div.bg-red-500).'
+
+  - key: tailwindCSS.validate
+    type: boolean
+    title: 'Linting & Validation'
+    default: true
+    description: 'Enable linting rules and diagnostic reporting for Tailwind CSS utilities.'
+
+  - key: tailwindCSS.colorDecorators
+    type: boolean
+    title: 'Color Decorators'
+    default: true
+    description: 'Controls whether the editor renders inline color preview decorators for Tailwind utility classes.'
+
+  - key: tailwindCSS.includeLanguages
+    type: object
+    title: 'Include Languages'
+    description: 'Enable features in languages that are not supported by default. Add a mapping here (e.g. {"plaintext": "html"}).'
+
+  - key: tailwindCSS.classAttributes
+    type: array
+    title: 'Class Attributes'
+    default:
+      - 'class'
+      - 'className'
+      - 'ngClass'
+      - 'class:list'
+    description: 'The HTML/JSX attributes to scan for class names.'
+
+  - key: tailwindCSS.lint.cssConflict
+    type: string
+    title: 'Lint: CSS Conflict'
+    default: 'warning'
+    description: 'Warn when class names on the same element apply conflicting CSS properties.'
+
+  - key: tailwindCSS.lint.invalidApply
+    type: string
+    title: 'Lint: Invalid @apply'
+    default: 'error'
+    description: 'Report errors for unsupported or invalid use of the @apply directive.'
+
+  - key: tailwindCSS.lint.invalidScreen
+    type: string
+    title: 'Lint: Invalid @screen'
+    default: 'error'
+    description: 'Report errors for unknown screen names used with @screen.'
+
+  - key: tailwindCSS.lint.invalidVariant
+    type: string
+    title: 'Lint: Invalid @variant'
+    default: 'error'
+    description: 'Report errors for unknown variant names used with @variants.'
+
+  - key: tailwindCSS.lint.invalidConfigPath
+    type: string
+    title: 'Lint: Invalid Config Path'
+    default: 'error'
+    description: 'Report errors for invalid theme keys used with the theme() helper.'
